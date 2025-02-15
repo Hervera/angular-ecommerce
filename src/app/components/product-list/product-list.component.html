@@ -1,0 +1,7 @@
+<!-- <p *ngFor="let tempProduct of products">
+    {{ tempProduct.name }}: {{ tempProduct.unitPrice }}
+</p> -->
+
+@for(tempProduct of products; track tempProduct) {
+ <p> {{ tempProduct.name }}: {{ tempProduct.unitPrice }}</p>
+}
