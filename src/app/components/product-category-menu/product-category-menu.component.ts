@@ -27,7 +27,7 @@ export class ProductCategoryMenuComponent {
   listProductCategories() {
     this.productService.getProductCategories().subscribe(
       (data: ProductCategory[]) => {
-        console.log('Product categories retrieved successfully! 2', JSON.stringify(data));
+        // console.log('Product categories retrieved successfully! 2', JSON.stringify(data));
         this.productCategories = data;
       },
       (error: any) => {
