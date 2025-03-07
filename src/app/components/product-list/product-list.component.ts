@@ -4,6 +4,8 @@ import { Product } from '../../common/product';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { CartService } from '../../services/cart.service';
+import { CartItem } from '../../common/cart-item';
 
 @Component({
   selector: 'app-product-list',
@@ -28,6 +30,7 @@ export class ProductListComponent {
 
   constructor(
     private productService: ProductService,
+    private cartService: CartService,
     private route: ActivatedRoute
   ) {}
 
@@ -115,5 +118,11 @@ export class ProductListComponent {
       this.thePageSize = data.page.size;
       this.theTotalElements = data.page.totalElements;
     }
+  }
+
+  addToCart(theProduct: Product) {
+    // Add the product to the shopping cart
+    const theCartItem = new CartItem(theProduct);
+    this.cartService.addToCart(theCartItem);
   }
 }

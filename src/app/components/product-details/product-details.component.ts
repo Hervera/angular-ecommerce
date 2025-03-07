@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { Product } from '../../common/product';
 import { ProductService } from '../../services/product.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
+import { CartService } from '../../services/cart.service';
+import { CartItem } from '../../common/cart-item';
 
 @Component({
   selector: 'app-product-details',
@@ -15,6 +17,7 @@ export class ProductDetailsComponent {
   product!: Product;
 
   constructor(private productService: ProductService, 
+    private cartService: CartService, 
     private route: ActivatedRoute,
   ) { }
 
@@ -33,5 +36,11 @@ export class ProductDetailsComponent {
         this.product = data;
       }
     )
+  }
+
+  addToCart() {
+    // Add the product to the shopping cart
+    const theCartItem = new CartItem(this.product);
+    this.cartService.addToCart(theCartItem);
   }
 }
