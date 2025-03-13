@@ -70,4 +70,29 @@ export class CartService {
 
     console.log('------')
   }
+
+  reduceQuantity(theCartItem: CartItem) {
+    console.log('reducing quantity', theCartItem)
+    theCartItem.quantity--;
+
+    // if the quantity becomes zero, remove the item from the cart
+    if(theCartItem.quantity <= 0) {
+      this.removeFromCart(theCartItem);
+    } else {
+      // compute cart total price and total quantity
+      this.computeCartTotals();
+    }
+  }
+  removeFromCart(theCartItem: CartItem) {
+    // find the index of the item in the cart and remove it
+    const itemIndex: number = this.cartItems.findIndex(tempCartItem => tempCartItem.id === theCartItem.id);
+
+    console.log('index ===>', itemIndex);
+
+    if(itemIndex > -1) {
+      this.cartItems.splice(itemIndex, 1);
+       // compute cart total price and total quantity
+      this.computeCartTotals();
+    }
+  }
 }
