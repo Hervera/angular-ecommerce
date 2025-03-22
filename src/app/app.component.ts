@@ -5,6 +5,7 @@ import { ProductCategoryMenuComponent } from './components/product-category-menu
 import { SearchComponent } from './components/search/search.component';
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,  // ✅ Make sure this is a standalone component

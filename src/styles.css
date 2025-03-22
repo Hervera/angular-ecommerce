@@ -1,4 +1,5 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
+@import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
 /* 
@@ -94,7 +95,8 @@ h6 {
 }
 
 a {
-    display: inline-block
+    display: inline-block;
+    text-decoration: none;
 }
 
 a:active,
@@ -383,7 +385,9 @@ input.au-input.au-input-xl {
     display: block;
     color: #555;
     font-size: 16px;
-    padding: 5px 0
+    padding: 5px 0;
+    white-space: nowrap;
+    text-decoration: none;
 }
 
 .navbar-sidebar .navbar-list li a i {
