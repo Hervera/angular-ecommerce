@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { CommonModule } from '@angular/common';
 import { CartItem } from '../../common/cart-item';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-cart-details',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './cart-details.component.html',
   styleUrl: './cart-details.component.css'
 })
